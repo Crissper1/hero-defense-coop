@@ -1,0 +1,13 @@
+{
+  "name": "hero-defense-coop",
+  "version": "1.0.0",
+  "description": "Juego web cooperativo móvil estilo LoL + Clash of Clans",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "ws": "^8.18.0"
+  }
+}

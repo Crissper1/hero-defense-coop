@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Hero Defense Coop</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Pantalla de Selección de Héroe / Lobby -->
+  <div id="lobby-screen" class="overlay">
+    <div class="lobby-card">
+      <h1 class="game-title">HERO DEFENSE COOP</h1>
+      <p class="subtitle">Defiende la base junto a tus amigos</p>
+      
+      <div class="input-group">
+        <label for="player-name">Tu Nombre</label>
+        <input type="text" id="player-name" maxlength="12" placeholder="Ej. Alex" value="Héroe">
+      </div>
+
+      <div class="class-selection">
+        <h3>Elige tu Héroe</h3>
+        <div class="class-grid">
+          <button class="class-btn selected" data-class="guerrero">
+            <span class="icon">⚔️</span>
+            <strong>Guerrero</strong>
+            <small>Tanque / Torbellino</small>
+          </button>
+          <button class="class-btn" data-class="mago">
+            <span class="icon">🔥</span>
+            <strong>Mago</strong>
+            <small>Daño AoE / Fuego</small>
+          </button>
+          <button class="class-btn" data-class="tirador">
+            <span class="icon">🏹</span>
+            <strong>Tirador</strong>
+            <small>Rango / Ráfagas</small>
+          </button>
+          <button class="class-btn" data-class="ingeniero">
+            <span class="icon">🔨</span>
+            <strong>Ingeniero</strong>
+            <small>Torretas / Curación</small>
+          </button>
+        </div>
+      </div>
+
+      <button id="btn-play" class="btn-primary">¡ENTRAR A LA BATALLA!</button>
+    </div>
+  </div>
+
+  <!-- HUD de Juego -->
+  <div id="game-ui" class="game-ui hidden">
+    <!-- Barra superior -->
+    <header class="top-bar">
+      <div class="stat-box nexus-box">
+        <span class="label">AYUNTAMIENTO</span>
+        <div class="bar-container">
+          <div id="nexus-bar" class="bar-fill" style="width: 100%;"></div>
+        </div>
+        <span id="nexus-hp-text" class="stat-text">1000 / 1000</span>
+      </div>
+
+      <div class="stats-center">
+        <div class="badge wave-badge">Oleada <span id="wave-num">1</span></div>
+        <div id="wave-status" class="sub-badge">En marcha</div>
+      </div>
+
+      <div class="stat-box gold-box">
+        <span class="gold-icon">🪙</span>
+        <span id="gold-amount">100</span>
+      </div>
+    </header>
+
+    <!-- Controles táctiles móviles -->
+    <div class="touch-layer">
+      <!-- Joystick virtual (Izquierda) -->
+      <div id="joystick-zone" class="joystick-zone">
+        <div id="joystick-base" class="joystick-base">
+          <div id="joystick-stick" class="joystick-stick"></div>
+        </div>
+      </div>
+
+      <!-- Botones de Acción (Derecha) -->
+      <div class="action-buttons">
+        <button id="btn-build" class="action-btn build-btn">
+          <span class="btn-icon">🏰</span>
+          <span class="btn-tag">Torreta (40🪙)</span>
+        </button>
+        <div class="skills-row">
+          <button id="btn-skill-q" class="action-btn skill-btn">
+            <span class="btn-icon" id="icon-q">💥</span>
+            <span class="btn-tag">Q</span>
+            <div id="cd-overlay-q" class="cooldown-overlay"></div>
+          </button>
+          <button id="btn-skill-w" class="action-btn skill-btn">
+            <span class="btn-icon" id="icon-w">⚡</span>
+            <span class="btn-tag">W</span>
+            <div id="cd-overlay-w" class="cooldown-overlay"></div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Canvas del Juego -->
+  <canvas id="game-canvas"></canvas>
+
+  <script src="game.js"></script>
+</body>
+</html>
